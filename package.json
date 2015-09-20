@@ -1,0 +1,22 @@
+{
+  "name": "react-browserify-es6-less-template",
+  "version": "1.0.0",
+  "description": "Skeleton for making a project with react, browserify, es6 support, and less",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run dev:js && npm run dev:less",
+    "prod": "npm run prod:js && npm run prod:less",
+    "prod:js": "browserify -t [ reactify --es6 ] html/js/main.js -o public/js/out.js",
+    "prod:less": "lessc --clean-css html/css/style.less public/css/style.css",
+    "dev:js": "watchify -t [ reactify --es6 ] html/js/main.js -o public/js/out.js",
+    "dev:less": "watch 'npm run less-prod' html/css/."
+  },
+  "author": "Sam Pepose",
+  "license": "MIT",
+  "devDependencies": {
+    "less-plugin-clean-css": "^1.5.1",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1",
+    "watchify": "^3.4.0"
+  }
+}
